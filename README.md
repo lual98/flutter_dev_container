@@ -29,6 +29,11 @@ A sample `launch.json` is provided at the root of this repository. Use the **"Ru
 
 These arguments are necessary for the debugger to work properly with the ADB workaround. Make sure to select this configuration when starting a debug session in VS Code.
 
+## Limitations
+
+> **Limitation:**
+> Only one instance of this container can run at a time on the same host. This is due to the fixed ports used for ADB and the Dart debugger. Running multiple containers simultaneously will cause port conflicts.
+
 ## Notes
 
 - The container is set up for both development and testing of Flutter apps.
