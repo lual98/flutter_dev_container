@@ -27,8 +27,6 @@ RUN sdkmanager "build-tools;35.0.1" "platform-tools" "platforms;android-35" "sou
 # Download Flutter SDK
 RUN git clone https://github.com/flutter/flutter.git
 RUN cd flutter
-# Checkout to stable version of the project
-
 ENV PATH "$PATH:/home/developer/flutter/bin"
 
 # This is part of a workaround mentioned in https://github.com/flutter/flutter/issues/61604#issuecomment-739885494
