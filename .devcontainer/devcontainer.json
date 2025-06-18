@@ -1,0 +1,25 @@
+{
+  "name": "Flutter Dev Container",
+  "build": {
+    "dockerfile": "../Dockerfile",
+    "context": ".."
+  },
+  "remoteUser": "developer",
+  "runArgs": [ "--privileged", "--network=host" ],
+  "workspaceMount": "source=${localWorkspaceFolder}/workspace,target=/workspace,type=bind",
+  "workspaceFolder": "/workspace",
+  "customizations": {
+    "vscode": {
+      "settings": {
+        "dart.flutterSdkPath": "~/flutter"
+      },
+      "extensions": [
+        "dart-Code.dart-code",
+        "dart-Code.flutter",
+        "ms-vscode.test-adapter-converter",
+        "Google.arb-editor"
+      ]
+    }
+  },
+  "overrideCommand": false
+}
