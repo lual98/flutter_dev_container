@@ -10,6 +10,9 @@ A ready-to-use development container for Flutter projects, including Android SDK
 - VS Code extensions for Flutter and Dart
 - Runs as a non-root `developer` user
 
+## Requirements
+- ADB should be installed on your host machine and in your PATH.
+
 ## Usage
 
 1. Open this repository in VS Code and reopen in the dev container.
@@ -18,7 +21,12 @@ A ready-to-use development container for Flutter projects, including Android SDK
 ## Debugging Android Devices
 
 > **Warning:**  
-> To debug Android emulators or real devices via ADB inside the container, you must have ADB running on your host machine. If ADB is not running on the host, the Dart analysis server will be terminated inside the container.
+> To debug Android emulators or real devices via ADB inside the container, you must have ADB running on your host machine. The container will automatically start the ADB server in the host machine. If ADB is not running on the host, the Dart analysis server will be terminated inside the container.
+> If you don't need to debug Android devices, remove the initializeCommand from the `.devcontainer/devcontainer.json` file and the following line from Dockerfile:
+```diff
+- ENV ADB_SERVER_SOCKET=tcp:host.docker.internal:5037
+```
+
 
 ## Debugging Flutter Apps from the Container
 
