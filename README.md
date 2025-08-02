@@ -43,6 +43,16 @@ These arguments are necessary for the debugger to work properly with the ADB wor
 > **Limitation:**
 > Only one instance of this container can run at a time on the same host. This is due to the fixed ports used for ADB and the Dart debugger. Running multiple containers simultaneously will cause port conflicts.
 
+## Issues
+- You may encounter the following error during Android builds:
+```
+Gradle build daemon disappeared unexpectedly (it may have been killed or may have crashed)
+```
+To fix this, lower the `org.gradle.jvmargs` value in your gradle
+.properties file. For example:
+```
+org.gradle.jvmargs=-Xmx1024M
+```
 ## Notes
 
 - The container is set up for both development and testing of Flutter apps.
