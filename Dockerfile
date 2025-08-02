@@ -32,7 +32,8 @@ ENV PATH="$PATH:/home/developer/flutter/bin"
 # This is part of a workaround mentioned in https://github.com/flutter/flutter/issues/61604#issuecomment-739885494
 ENV ADB_SERVER_SOCKET=tcp:host.docker.internal:5037
 
-# Run basic check to download Dart SDK
+# Run basic check to download Dart SDK and set stable channel
+RUN flutter channel stable
 RUN flutter doctor
 
 WORKDIR /home/developer/
@@ -43,6 +44,9 @@ RUN mkdir -p /home/developer/bin
 RUN cd /home/developer/bin && wget -O firebase https://firebase.tools/bin/linux/latest && chmod +x firebase
 ENV PATH="$PATH:/home/developer/.pub-cache/bin"
 ENV PATH="$PATH:/home/developer/bin"
+
+# Setup FVM
+RUN dart pub global activate fvm
 
 COPY --chown=developer:developer pubspec.* ./
 # This is part of a workaround mentioned in https://github.com/flutter/flutter/issues/61604#issuecomment-739885494
