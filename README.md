@@ -6,6 +6,7 @@ A ready-to-use development container for Flutter projects, including Android SDK
 
 - Preinstalled Flutter SDK and Android SDK
 - FlutterFire CLI included for Firebase integration
+- FVM (Flutter Version Management) for managing Flutter versions included
 - VS Code extensions for Flutter and Dart
 - Runs as a non-root `developer` user
 
