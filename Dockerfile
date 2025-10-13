@@ -1,5 +1,5 @@
 ## Standalone dev container for developing
-FROM ubuntu:24.04
+FROM --platform=linux/amd64 ubuntu:24.04
 
 # Prerequisites
 RUN apt update && apt install -y curl git unzip xz-utils zip libglu1-mesa openjdk-17-jdk wget socat lcov
