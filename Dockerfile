@@ -52,7 +52,7 @@ RUN cd flutter
 ENV PATH="$PATH:/home/$USERNAME/flutter/bin"
 
 # This is part of a workaround mentioned in https://github.com/flutter/flutter/issues/61604#issuecomment-739885494
-ENV ADB_SERVER_SOCKET=tcp:host.docker.internal:5037
+ENV ADB_SERVER_SOCKET=tcp:127.0.0.1:5037
 
 # Run basic check to download Dart SDK and set stable channel
 RUN flutter channel stable
