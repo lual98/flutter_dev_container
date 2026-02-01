@@ -43,6 +43,9 @@ These arguments are necessary for the debugger to work properly with the ADB wor
 > **Limitation:**
 > Only one instance of this container can run at a time on the same host. This is due to the fixed ports used for ADB and the Dart debugger. Running multiple containers simultaneously will cause port conflicts.
 
+> **Limitation:**
+> MacOS devices with Apple Silicon are forced to use the x86_64 architecture for the Docker container. This may lead to performance issues. You can modify the Docker image at your own risk by removing the `--platform linux/amd64` flag in the Dockerfile.
+
 ## Issues
 - You may encounter the following error during Android builds:
 ```
@@ -53,6 +56,7 @@ To fix this, lower the `org.gradle.jvmargs` value in your gradle
 ```
 org.gradle.jvmargs=-Xmx1024M
 ```
+- ADB won't work properly on Linux hosts with Docker CE. I am working on a solution for this. This container has been mainly tested on Docker Desktop.
 ## Notes
 
 - The container is set up for both development and testing of Flutter apps.
